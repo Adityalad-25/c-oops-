@@ -1,0 +1,114 @@
+//HIERARCHIAL INHERTANCE :- CLASS PERSON        CLASS STUDENT(roll,percentage)         CLASS Teacher(teac_id,salary)
+    //                    ( NAME ,  AGE ) --inherits-->(name and age )---------inherits---> name and age(from class person)                     
+    //                                                                                             //
+                                          
+                                          
+                                          
+#include <iostream>
+using namespace std;
+class student;
+class person
+{
+    private:
+             int age;
+             char name[10];
+    public:
+            void get_p()
+            {
+                cout<<"Enter Age = ";
+                cin>>age;
+                cout<<"Enter Name = ";
+                cin>>name;
+            }
+             void dis_p()
+            {
+                cout<<" Age = "<<age<<"\t"<<" Name = "<<name<<endl;
+                
+            }
+            
+               
+            
+    
+};
+
+// age and  name of class person(base class) are inherited to class student(derived class) //
+class student: public person  //syntax to declare----> class derived: visibiityname_mode base class_name---->
+{
+    private:
+             int roll;
+             float per;
+    public:
+            void get_s()
+            {
+                cout<<"Enter Roll no = ";
+                cin>>roll;
+                cout<<"Enter percentage = ";
+                cin>>per;
+            }
+             void dis_s()
+            {
+                cout<<"ROLL NO = "<<roll<<"\t"<<"percentage = "<<per<<endl;
+                
+            }
+            
+               
+            
+    
+};
+class teacher: public person  //syntax to declare----> class derived: visibiityname_mode base class_name---->
+{
+    private:
+             int teac_id;
+             float salary;
+    public:
+            void get_t()
+            {
+                cout<<"Enter id = ";
+                cin>>teac_id;
+                cout<<"Enter salary = ";
+                cin>>salary;
+            }
+             void dis_t()
+            {
+                cout<<"Teacher id = "<<teac_id<<"\t"<<"Salary = "<<salary<<endl;
+                
+            }
+            
+               
+            
+    
+};
+int main()
+{
+    person p;       
+    student s;
+    teacher t;
+   cout<<"Enter details for person:"<<endl;
+    p.get_p();
+  
+    cout<<"Enter details for student:"<<endl;
+    s.get_p();
+    s.get_s();
+  
+   cout<<"enter details for teacher:"<<endl;
+    t.get_p();
+    t.get_t();
+    cout<<endl;
+   cout<<"DISPLAYLING DETAILS OF PERSON STUDENT AND TEACHER RESPECTIVELY:"<<endl;
+   cout<<endl;
+    cout<<"Details of person entered are as follows:"<<endl;
+    p.dis_p();
+    cout<<endl;
+     cout<<"Details of student entered are as follows:"<<endl; 
+    s.dis_p();
+    s.dis_s();
+    cout<<endl;
+   cout<<"Details of teacher entered are as follows:"<<endl; 
+    t.dis_p();
+    t.dis_t();
+
+    return 0;
+}
+
+
+
