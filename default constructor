@@ -1,0 +1,25 @@
+#include <iostream>  
+using namespace std;  
+class Employee  
+ {  
+    private:
+             int id;
+             string name[10];
+    
+   public:  
+       
+        Employee()    
+        {    
+           cout<<"Default Constructor Invoked"<<endl; 
+            id=0;
+            name[10]="noname";
+        }    
+        
+};  
+int main(void)   
+{  
+    Employee e1; //creating an object of Employee   
+    // Employee e2;   
+    return 0;  
+}  
+
