@@ -1,0 +1,76 @@
+/******************************************************************************
+
+//SINGLE INHERITANCE EXAMPLE USING CLASS PERSON AS (BASE CLASS) AND CLASS STUDENT AS (DERIVED CLASS)//
+
+SYNTAX:- class derived_classname: visibiityname_mode base class_name    (visibiitymode:- public or private or protected depends on user)---->
+*******************************************************************************/
+#include <iostream>
+using namespace std;
+class student;
+class person
+{
+    private:
+             int age;
+             char name[10];
+    public:
+            void get_p()
+            {
+                cout<<"Enter Age = ";
+                cin>>age;
+                cout<<" Enter Name = ";
+                cin>>name;
+            }
+             void dis_p()
+            {
+                cout<<" Age = "<<age<<endl;
+                cout<<" Name = "<<name<<endl;
+            }
+            
+               
+            
+    
+};
+
+// age and  name of class person(base class) are inherited to class student(derived class) //
+class student: public person  //syntax to declare----> class derived: visibiityname_mode base class_name---->
+{
+    private:
+             int roll;
+             float per;
+    public:
+            void get_s()
+            {
+                cout<<"enter Roll no = ";
+                cin>>roll;
+                cout<<"enter percentage = ";
+                cin>>per;
+            }
+             void dis_s()
+            {
+                cout<<" ROLL NO = "<<roll<<endl;
+                cout<<"percentage = "<<per<<endl;
+            }
+            
+               
+            
+    
+};
+int main()
+{
+    person p;       
+    student s;
+   cout<<"enter details for person:"<<endl;
+    p.get_p();
+   cout<<"details of person entered are as follows:"<<endl;
+    p.dis_p();
+    cout<<"enter details for student:"<<endl;
+    s.get_p();
+    s.get_s();
+   cout<<"details of student entered are as follows:"<<endl; 
+    s.dis_p();
+    s.dis_s();
+
+    return 0;
+}
+
+
