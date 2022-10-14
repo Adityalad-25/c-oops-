@@ -1,0 +1,109 @@
+
+#include <iostream>
+
+using namespace std;
+class rectangle
+{
+  int l, b, a,p;
+public:
+  //01.default constructor//:-get called automatically in 
+  // the main function if getdata() fun not called//
+    rectangle ()
+  {
+    l = 0;			//also can initiate it as l=1,2,3.....n;
+    b = 0;			//----------=-------------b=1,2,3......n;
+    a = 0;
+    p=0;
+  }
+  //02.(A)parametric constructor:-//         
+  rectangle (int x, int y)
+  {
+    l = x;
+    b = y;
+  }
+  //02.(B)parametric constructor(same values of l and b ):-//
+  rectangle(int z) 
+  {
+      l=b=z;
+  }
+ // 03 COPY CONSTRUCTOR//
+  rectangle(const rectangle &rect)
+  {
+    //   cout<<"copy constructor called:"<<endl;
+      l=rect.l;
+      b=rect.b;
+  }
+  void getdata ()
+  {
+    cout << "enter length of  rectangle=" << endl;
+    cin >> l;
+    cout << "enter breadth of  rectangle=" << endl;
+    cin >> b;
+  }
+
+  void area ()
+  {
+    a = l * b;
+    cout << "area of rectangle:-" << "" << a << endl;
+
+  }
+  void displaydata ()
+  {
+    cout << "length  of  rectangle=" << l << endl;
+    cout << "breadth of  rectangle=" << b << endl;
+    cout << "area   of  rectangle=" << a << endl;
+             
+  }
+  
+//   void perimeter();                                   :-definition for this function is written outside class:-//
+
+};
+// //we can write function outside class also//
+//   void rectangle::perimeter()
+//   {
+//       p=2*(l+b);
+//       cout<<"perimeter is="<<p;
+      
+//   }
+  
+
+
+
+int main ()
+{
+  rectangle c, c1; //(we can change the values inside c2 and c3 as per req)//
+  rectangle c2 (10, 4),c3(2);//creating parametric objects//
+  rectangle c4,c5(c3),c6(c2);
+  cout << " for default constructor" << endl;
+  c.displaydata ();
+  cout << "(Without constructor) enter the required details:-" << endl;
+  c1.getdata ();
+  c1.area ();
+//   c1.perimeter();
+  c1.displaydata ();
+  cout << "For parametric constructor:-" << endl;
+  c2.area ();
+  c2.displaydata ();
+  cout<<"For (same vales of l and b) parametric constructor:-"<<endl;
+  c3.area();
+  c3.displaydata();
+  cout<<"manually assigned c4=c2 :- enter the details"<<endl;
+  c4=c2;
+  c4.area();
+  c4.displaydata();
+  
+  cout<<"copy constructor called:"<<endl;
+  c5.area();
+  c5.displaydata();
+  cout<<"another copy constructor called:"<<endl;
+  c6.area();
+  c6.displaydata();
+  
+  return 0;
+}
+
+
+
+
+
+
