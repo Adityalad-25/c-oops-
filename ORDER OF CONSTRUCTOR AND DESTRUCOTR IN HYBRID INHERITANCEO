@@ -1,0 +1,96 @@
+/******************************************************************************
+*******************************************************************************/
+   // ORDER OF CONSTRUCTOR AND DESTRUCOTR IN HYBRID INHERITANCE//
+//*******************************************************************************/
+#include <iostream>
+using namespace std;
+class base
+{
+    public:
+            base()
+            {
+                cout<<"Default constructor of base called "<<endl;
+            }
+            base(int x)
+            {
+                cout<<"Parametric constructor of base called "<<endl;
+            }
+            ~base()
+            {
+                cout<<"destrucotr of base invoked "<<endl;
+            }
+};
+class A:public base
+{
+    public:
+           A()
+            {
+                cout<<"Default constructor of A called "<<endl;
+            }
+           A(int a)
+            {
+                cout<<"Parametric constructor of A called "<<endl;
+            }
+          A(int y, int b):base(y)
+            {
+                cout<<"Parametric constructor of A called "<<endl;
+            }
+              ~A()
+            {
+                cout<<"destrucotr of A invoked "<<endl;
+            }
+};
+class B:  public base
+{
+    public:
+           B()
+            {
+                cout<<"Default constructor of B called "<<endl;
+            }
+           B(int a)
+            {
+                cout<<"Parametric constructor of B called "<<endl;
+            }
+          B(int y, int b):base(y)
+            {
+                cout<<"Parametric constructor of B called "<<endl;
+            }
+              ~B()
+            {
+                cout<<"destrucotr of B invoked "<<endl;
+            }
+};
+class D:public A, public B
+{
+    public :
+             D()
+             {
+                  cout<<"Default constructor of D called "<<endl;
+             }
+             D(int a)
+            {
+                cout<<"Parametric constructor of D called "<<endl;
+            }
+            D(int y,int c, int b):A(y),B(c)
+            {
+                cout<<"Parametric constructor of B called "<<endl;
+            }
+              ~D()
+            {
+                cout<<"destrucotr of D invoked "<<endl;
+            }
+             
+};
+
+int main()
+{
+
+    D d;
+    cout<<"------------------------------------";
+    cout<<endl;
+    D d1(10);
+    cout<<"------------------------------------";
+    cout<<endl;
+    D d3(20,10,30);
+    return 0;
+}
